@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}Update{% endblock %}
+
+{% block menu %}
+    <li class="nav-item"><a class="nav-link" href="{% url 'pol_view' pols.pk %}">Отмена</a></li>
+{% endblock %}
+
+{% block content %}
+    <h1>Update Pol</h1>
+
+    {% url "pol_update" pk=pols.pk as action_url %}
+    {% include 'partial/pol_forms.html' with action_url=action_url form_method='post' button_text='Update' %}
+{% endblock %}

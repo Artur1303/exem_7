@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}
+    My Pol
+{% endblock %}
+
+{% block content %}
+  {% if is_paginated %}
+   {% include 'partial/pagination.html' %}
+{% endif %}
+    {% for pol in pols %}
+
+        <h3><a href="{% url 'pol_view' pol.pk%}">{{ pol.question }}</a></h3>
+
+
+      <a href="{% url 'pol_update' pol.pk %} ">Update</a>
+      <a href="{% url 'pol_delete' pol.pk %} ">Delete</a>
+    {% endfor %}<br>
+    <br>
+  {% if is_paginated %}
+   {% include 'partial/pagination.html' %}
+{% endif %}
+{% endblock %}
