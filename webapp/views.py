@@ -78,9 +78,16 @@ class ChoiceDeleteView(DeleteView):
     model = Choice
     template_name = 'choice_delete.html'
 
-    # def get(self, request, *args, **kwargs):
-    #     return self.delete(request, *args, **kwargs)
 
     def get_success_url(self):
         return reverse('pol_view', kwargs={'pk': self.object.interview.pk})
 
+
+class AnsverList(View):
+    def get(self, request, *args, **kwargs):
+       self.pol=get_object_or_404(Pol,pk = self.kwargs['pk'])
+       
+
+
+
+       return redirect('index')

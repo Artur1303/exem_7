@@ -25,4 +25,4 @@ class Answer(models.Model):
                                         on_delete=models.CASCADE, verbose_name='Ответ')
     creat_at = models.DateTimeField(auto_now_add=True, verbose_name='Дата и время создания')
     possible_answer = models.ForeignKey('webapp.Choice', related_name='answer',
-                                        on_delete=modelsgit remote add origin https://github.com/Artur1303/exem_7.git.CASCADE, verbose_name='Ответ')
+                                        on_delete=models.CASCADE, verbose_name='Ответ')
