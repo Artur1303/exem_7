@@ -1,0 +1,24 @@
+
+{% extends 'base.html' %}
+
+{% block title %}View{% endblock %}
+
+{% block menu %}
+    <li><a href="{% url 'pol_update' pol.pk %}">Update</a></li>
+    <li><a href="{% url 'pol_delete' pol.pk %}">Delete</a></li>
+    <li><a href="{% url 'choice_create' pol.pk%}"> Choice Create</a></li>
+
+{% endblock %}
+{% block content %}
+      <p> Вопрос:  {{ pol.question }}</p>
+      <p>Дата и время:  {{ pol.datetime }}</p>
+    {% for interviews in interview %}
+
+       <h3>Ответ: {{ interviews.Option_text }}</h3>
+
+        <a href="{% url 'choice_update' interviews.pk%}">Update</a>
+         <a href="{% url 'choice_delete' interviews.pk%}">Delete</a>
+    {% endfor %}
+
+
+{% endblock %}

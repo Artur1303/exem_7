@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse, reverse_lazy
 from django.views.generic import ListView, DeleteView, CreateView, UpdateView
+from django.views.generic.base import View
 
 from webapp.forms import PolForm, ChoiceForm
 from webapp.models import Pol, Choice
@@ -86,7 +87,7 @@ class ChoiceDeleteView(DeleteView):
 class AnsverList(View):
     def get(self, request, *args, **kwargs):
        self.pol=get_object_or_404(Pol,pk = self.kwargs['pk'])
-       
+
 
 
 
